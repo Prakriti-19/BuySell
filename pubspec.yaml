@@ -41,6 +41,8 @@ dependencies:
   google_fonts: ^2.3.1
   mailer: ^5.0.1
   google_sign_in: ^5.0.4
+  image_picker: ^0.8.4+5
+  firebase_storage: ^10.2.15
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -72,10 +74,15 @@ flutter:
     - images/a.png
     - images/b.png
     - images/temp2.png
-    - images/flash2.png
+    - images/book.png
     - images/flash.png
     - images/x.jpeg
     - images/pp.png
+    - images/acce.jpg
+    - images/cooler.jpg
+    - images/electronics.png
+    - images/sport.png
+    - images/health.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -103,9 +103,12 @@ class _p_displayState extends State<p_display> {
           b_price.add(product.docs[index]['b_price']);
         }
       });});
+
     return Scaffold(
+      backgroundColor: Colors.orange[50],
       appBar: new PreferredSize(
         child: new Container(
+          color: Colors.orange,
           padding: new EdgeInsets.only(
               top: MediaQuery.of(context).padding.top
           ),
@@ -116,7 +119,7 @@ class _p_displayState extends State<p_display> {
                 bottom: 20.0
             ),
             child: new Text(
-              'Products for ${cat}',
+              '${cat.toUpperCase()}',
               style: new TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.w500,
@@ -124,14 +127,15 @@ class _p_displayState extends State<p_display> {
               ),
             ),
           ),
-          decoration: new BoxDecoration(
-            gradient: new LinearGradient(
-                colors: [
-                  Colors.orangeAccent,
-                  Colors.redAccent,
-                ]
-            ),
-          ),
+
+          // decoration: new BoxDecoration(
+          //   gradient: new LinearGradient(
+          //       colors: [
+          //         Colors.orangeAccent,
+          //         Colors.redAccent,
+          //       ]
+          //   ),
+          // ),
         ),
         preferredSize: new Size(
             MediaQuery.of(context).size.width,
@@ -144,7 +148,7 @@ class _p_displayState extends State<p_display> {
             if(!snapshot.hasData){return Center(child: CircularProgressIndicator());}
             final documentSnapshotList = snapshot.data!.docs.where((element) => element['cat']==cat);
             c = documentSnapshotList.length;
-            if (!snapshot.hasData) {
+                       if (!snapshot.hasData) {
               return Center(child: Text("snapshot has no data"));
             }
             else {

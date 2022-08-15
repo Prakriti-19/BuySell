@@ -17,7 +17,7 @@ class _RegisterState extends State<Register> {
       children: <Widget>[
 
         Text(
-          'Email',
+          'Enter your Email',
           style: TextStyle(
             color: Colors.orange,
             fontSize: 16,
@@ -28,9 +28,7 @@ class _RegisterState extends State<Register> {
         Container(
           alignment: Alignment.centerLeft,
           decoration: BoxDecoration(
-            color: Color.fromARGB(71, 158, 158, 158).withOpacity(
-              0.5,
-            ),
+            color: Colors.orange[50],
             borderRadius: BorderRadius.circular(16),
           ),
           height: 60,
@@ -42,7 +40,7 @@ class _RegisterState extends State<Register> {
                   contentPadding: EdgeInsets.only(top: 14),
                   prefixIcon: Icon(Icons.email, color: Colors.orange),
                   hintText: 'Email',
-                  hintStyle: TextStyle(color: Colors.black38)),
+                  hintStyle: TextStyle(color: Colors.orange[200])),
               validator: (val) => val!.isEmpty ? 'Enter an email' : null,
               onChanged: (val) {
                 setState(() => email = val);
@@ -68,7 +66,7 @@ class _RegisterState extends State<Register> {
         Container(
           alignment: Alignment.centerLeft,
           decoration: BoxDecoration(
-            color: Color.fromARGB(71, 158, 158, 158).withOpacity(0.5,),
+            color: Colors.orange[50],
             borderRadius: BorderRadius.circular(16),
           ),
           height: 60,
@@ -80,7 +78,7 @@ class _RegisterState extends State<Register> {
                 contentPadding: EdgeInsets.only(top: 14),
                 prefixIcon: Icon(Icons.lock, color: Colors.orange),
                 hintText: 'Password',
-                hintStyle: TextStyle(color: Colors.black38)),
+                hintStyle: TextStyle(color: Colors.orange[200])),
             validator: (value) => value!.length < 6 ? 'Enter a password of 6 or more characters' : null,
             onChanged: (val) {setState(() => password = val);},
           ),
@@ -99,21 +97,6 @@ class _RegisterState extends State<Register> {
           dynamic result = await _auth.registerWithEmailAndPassword(email, password);
           if (result == null) {setState(() {error = 'could not register';});
           }
-          // if(email.substring(email.indexOf('@'))!='iiita.ac.in'){
-          //   Widget okButton = TextButton(
-          //     child: Text("OK"),
-          //     onPressed: () {
-          //       Navigator.push(context, MaterialPageRoute(builder: (context) => Register()),);
-          //     },
-          //   );
-          //   AlertDialog alert =AlertDialog(content: Text('please enter your IIITA mail id.'),actions: [okButton ]);
-          //   showDialog(
-          //     context: context,
-          //     builder: (BuildContext context) {
-          //       return alert;
-          //     },);
-          //   email='';
-          // }
           void Demo2() async{
             if(email.substring(email.indexOf('@'))=='@iiita.ac.in'){
               await Navigator.push(context, MaterialPageRoute(builder: (context) => dv()),);}
@@ -166,20 +149,6 @@ class _RegisterState extends State<Register> {
             Container(
               height: double.infinity,
               width: double.infinity,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("images/temp2.png"),
-                    fit: BoxFit.cover,
-                  ),
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.topCenter,
-                      colors: [
-                        Color(0x6633cccc),
-                        Color(0x9933cccc),
-                        Color(0xcc33cccc),
-                        Color(0xff33cccc),
-                      ])),
               child: SingleChildScrollView(
                 physics: AlwaysScrollableScrollPhysics(),
                 padding: EdgeInsets.symmetric(
@@ -205,6 +174,7 @@ class _RegisterState extends State<Register> {
                     buildPassword(),
                     SizedBox(height: 45),
                     buildRegisterBtn(),
+                    SizedBox(height: 45),
                     TextButton(
                         style: TextButton.styleFrom(
                           padding: const EdgeInsets.all(16.0),
@@ -220,13 +190,13 @@ class _RegisterState extends State<Register> {
                               TextSpan(
                                   text: 'Already a User?',
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.black12,
                                       fontSize: 15,
                                       fontWeight: FontWeight.w500)),
                               TextSpan(
                                   text: 'Sign in',
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.orange,
                                       fontSize: 17,
                                       fontWeight: FontWeight.bold))
                             ]))

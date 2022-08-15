@@ -32,11 +32,12 @@ class _SplashScreenState extends State<SplashScreen> {
   }
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(255, 248, 220,1),
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
           Container(
-            color: Colors.black,
+            color: Color.fromARGB(1, 255, 248, 220),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -56,7 +57,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        CircularProgressIndicator(color: Colors.white,),
+                        CircularProgressIndicator(color: Colors.orange[700],),
                         Padding(
                           padding: EdgeInsets.only(top: 20.0),
                         ),

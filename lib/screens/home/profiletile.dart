@@ -1,68 +1,10 @@
-// import 'package:flutter/material.dart';
-// import 'package:madd/screens/home/userinfo.dart';
-// import 'package:mailer/mailer.dart';
-// import 'package:mailer/smtp_server.dart';
-//
-// import '../../models/profile_item.dart';
-// import '../authentication/google_auth_api.dart';
-// class profiletile extends StatefulWidget {
-//   final Profile_item profile; int ind;
-//   profiletile({required this.profile, required this.ind});
-//
-//   @override
-//   _profiletileState createState() => _profiletileState();
-// }
-//
-// class _profiletileState extends State<profiletile> {
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     Profile_item profile =widget.profile;
-//     return Padding(
-//       padding: EdgeInsets.only(top: 20.0),
-//       child: Column(
-//           children:[
-//       Card(
-//       shape: RoundedRectangleBorder(
-//       borderRadius: BorderRadius.circular(15.0),
-//     ),
-//     color: Colors.orange[50],
-//     margin: EdgeInsets.only(top: 20.0),
-//     child: Column(
-//     children:[
-//     ListTile(
-//     // leading: CircleAvatar(
-//     // radius: 15,
-//     // backgroundImage: AssetImage('images/user.png'),
-//     // ),
-//     title: Text(profile.p_name,style: TextStyle(color: Colors.orange[900]),),
-//     subtitle: Text(
-//     // 'has ${profile.cc_rank} stars on CodeChef \n has ${profile.he_rank} rank on HackerEarth \n has ${profile.apk_points} points in APK Month \n and is interested in ${profile.interests} \n Contact number: ${profile.pno}'
-//     'Description:  ${profile.desc} \nContact number: ${profile.pno} '
-//     ),
-//     ),
-//       Row(
-//         children: [
-//           SizedBox(width: 20.0),
-//           SizedBox(width: MediaQuery.of(context).size.height/5,child: Text("Rent price: ${profile.r_price}",textAlign: TextAlign.center,),),
-//           SizedBox(width: MediaQuery.of(context).size.height/20),
-//           SizedBox(width: MediaQuery.of(context).size.height/5,child: Text("Buying price: ${profile.b_price}",textAlign: TextAlign.center,),),
-//         ],
-//       ),
-//       RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>UserInfo(profile: profile)));
-//        },child: Text('Mail the owner'),),
-//     ]))]));
-//   }
-// }
 import 'package:flutter/material.dart';
-import 'package:madd/screens/home/userinfo.dart';
-import 'package:mailer/mailer.dart';
-import 'package:mailer/smtp_server.dart';
-
+import 'package:madd/screens/home/itempage.dart';
 import '../../models/profile_item.dart';
-import '../authentication/google_auth_api.dart';
+
 class profiletile extends StatefulWidget {
-  final Profile_item profile; int ind;
+  final Profile_item profile;
+  int ind;
   profiletile({required this.profile, required this.ind});
 
   @override
@@ -70,89 +12,71 @@ class profiletile extends StatefulWidget {
 }
 
 class _profiletileState extends State<profiletile> {
-
   @override
   Widget build(BuildContext context) {
-    Profile_item profile =widget.profile;
-    Future sendemail() async{
-      final user=await GoogleAuthApi.signIn();
-      if (user==null) return;
-      final email=user.email;
-      final auth= await user.authentication;
-      final token='';
-      final smtpServer=gmailSaslXoauth2(email, token);
-      final message=Message()
-        ..from(email)
-        ..recipients=[profile.email]
-        ..subject='Buyer Found'
-        ..text='Hello, I am interested in buying your product, ${profile.p_name}';
-      await send(message,smtpServer);
-    }
-    return Padding(
-        padding: EdgeInsets.only(top: 20.0),
-        child: Column(
-            children:[
-              Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(25.0),
-                  ),
-                  color: Colors.orange[50],
-                  margin: EdgeInsets.only(top: 20.0),
-                  child: Column(
-                      children:[
-                        ListTile(
-                          // leading: CircleAvatar(
-                          // radius: 15,
-                          // backgroundImage: AssetImage('images/user.png'),
-                          // ),
-                          title: Text(profile.p_name,style: TextStyle(color: Colors.orange[900]),),
-                          subtitle: Text(
-                            // 'has ${profile.cc_rank} stars on CodeChef \n has ${profile.he_rank} rank on HackerEarth \n has ${profile.apk_points} points in APK Month \n and is interested in ${profile.interests} \n Contact number: ${profile.pno}'
-                              'Description:  ${profile.desc} \nContact number: ${profile.pno} '
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            SizedBox(width: 20.0),
-                            SizedBox(width: MediaQuery.of(context).size.height/5,child: Text("Rent price: ${profile.r_price}",textAlign: TextAlign.center,),),
-                            SizedBox(width: MediaQuery.of(context).size.height/20),
-                            SizedBox(width: MediaQuery.of(context).size.height/5,child: Text("Buying price: ${profile.b_price}",textAlign: TextAlign.center,),),
-                          ],
-                        ),
-                        RaisedButton(
-                          color: Colors.orange[50],
-                          child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children:  <Widget>[
-                                Container(
-                                    width: 100,
-                                    height: 35,
-                                    decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          Colors.orangeAccent,
-                                          Colors.redAccent,
-                                        ],
-                                        begin: Alignment.topLeft,
-                                        end: Alignment.bottomRight,
-                                      ),
-                                      borderRadius: BorderRadius.circular(10),
+    Profile_item profile = widget.profile;
 
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'Mail the Owner',
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    )
-                                )]),onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>UserInfo(profile: profile)));},
-                        padding: EdgeInsets.symmetric(vertical: 0),
-                          shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(48.0))),
-                        ),
-                      ]))]));
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 7,vertical: 10),
+      child: Stack(children: <Widget>[
+        Material(
+          elevation: 12,
+          shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(20)),
+      child: Container(
+        decoration: new BoxDecoration(
+          border:  Border.all(
+            color: Colors.orange, //                   <--- border color
+            width: 5.0,
+          ),
+            color: Colors.orange[50],
+          shape: BoxShape.rectangle,
+          borderRadius: BorderRadius.circular(20)),
+            height: 93,
+            child: Row(children: <Widget>[
+              SizedBox(
+                width: 5,
+              ),
+              Container(
+                width: 270,
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children:<Widget>[
+                      SizedBox(
+                        width: 2,
+                      ),
+                      Text(
+                        '  ${widget.profile.p_name} ',
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,color: Colors.black54),
+                      ),
+                      SizedBox(
+                        height: 4,
+                      ),
+                      Row(
+                        children: [
+                          SizedBox(width: 2,),
+                          Container(
+                            width: 180,
+                            child: Text(
+                              '  ${widget.profile.desc} ',
+                              style: TextStyle(fontSize: 15,color: Colors.black38),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ]),
+              ),
+              Container(
+                width: 50,
+                child: IconButton(
+                  color: Colors.orange[700],
+                  onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Userprof(profile: profile)));},
+                  padding: EdgeInsets.symmetric(vertical: 0),
+                  icon: Icon(Icons.double_arrow_outlined),
+                ),
+              ),
+            ],
+            ),
+          ),
+        )]),);
   }
 }
