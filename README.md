@@ -2,12 +2,9 @@
 
 A new Flutter project.
 
-##Hands for Hunger
-
 ##Team Members
 1) Prakriti Vashishtha(IIITA-1st year)
 2) Dakshita Tripathi(IIITA-1st year)
-3) Ayush Raghuvanshi(AKGEC-1st year)
 
 ##Problem Statement
 Rental/Buying System: In college, you often lack the things you need. But there is a high chance that someone else has that thing you need but he has no use for it currently.So make an app where people can list the things they want to rent out or sell. And other users can see their listing and contact them to buy or rent it. 
