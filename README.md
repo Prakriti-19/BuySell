@@ -23,12 +23,5 @@ Through our app, one can sell/rent the things they don't need anymore and other 
 8) Contact the seller yourself through their phone number
 
 ##Screenshots:
-![buyer info](https://user-images.githubusercontent.com/97447737/162375488-64107bd5-57d1-4645-ac40-4401bf002155.jpeg)
-![homescreen (2)](https://user-images.githubusercontent.com/97447737/162375466-416acf38-b180-406a-ae53-5f3ff975244f.jpeg)
-![product info](https://user-images.githubusercontent.com/97447737/162375467-f4677f8e-64a1-4779-b920-1df960f5566d.jpeg)
-![mail sent](https://user-images.githubusercontent.com/97447737/162375471-87203622-ef90-4856-9583-bf15833bb252.jpeg)
-![signin](https://user-images.githubusercontent.com/97447737/162376293-b0fae257-9ba2-4668-bef6-e36840339904.jpeg)
-![register](https://user-images.githubusercontent.com/97447737/162376369-6ac861cf-1476-4ddb-8cb3-d55a721b3115.jpeg)
-
-##Vediolink
-https://drive.google.com/file/d/1MdU3M5v_f88blBnaPicCZSSWLMA3zwQx/view?usp=drivesdk
+![Group 23](https://user-images.githubusercontent.com/111135506/184922067-f5acf2a2-4a39-4252-b9a7-28ec3df697ee.png)
+![Group 24](https://user-images.githubusercontent.com/111135506/184922094-0a68ff6a-b656-4baf-940a-05bfbbef19de.png)
